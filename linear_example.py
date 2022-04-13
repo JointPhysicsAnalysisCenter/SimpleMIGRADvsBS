@@ -161,13 +161,13 @@ for name in ["p0","p1"]:
     fig = plt.figure(figsize=(6,4))
     if name=="p0":
         i = 0; err = 0.07; xdw, xup =  1.7, 2.5
-        namefile = 'theta1.pdf'
-        nombre = r'$\theta_1$'
+        namefile = 'theta2.pdf'
+        nombre = r'$\theta_2$'
         plt.ylim((0.0,6.))
     else:
         i = 1; err = 0.004; xdw, xup =  0.47, 0.52
-        namefile = 'theta2.pdf'
-        nombre = r'$\theta_2$'
+        namefile = 'theta1.pdf'
+        nombre = r'$\theta_1$'
         plt.ylim((0.0,110.))
 
     x = np.linspace(xdw,xup, npoints)
