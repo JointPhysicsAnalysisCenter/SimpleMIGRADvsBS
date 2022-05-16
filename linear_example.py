@@ -3,7 +3,7 @@
 
 @author: cesar fernandez-ramirez
 
-version: 2021-11-18
+version: 2022-04-28
 
 Bootstrap and statistics for Joint Physics Analysis Center review
 """
@@ -31,6 +31,7 @@ jpac_pink   = "#E377C2"; jpac_gold   = "#BCBD22";
 jpac_aqua   = "#17BECF"; jpac_grey   = "#7F7F7F";
 
 dashes = 60*'_'; label_size = 12
+
 #%%
 
 ###########################################################
@@ -61,15 +62,16 @@ def dataset(xdata,a,errorsize):
     ydata = y + y_noise
     return ydata, y_error, yerrors
 
+#%%
+
+###########################################################
+#   Minuit fit  and errors for the linear example
+###########################################################
+
 np.random.seed(1729)
 ndatapoints = 40; a = [0.5, 2.,]; errorsize = 1.5;
 xdata = np.linspace(0, 20, ndatapoints)
 ydata, y_error, yerrors = dataset(xdata,a,errorsize)
-#%%
-
-###########################################################
-#   Minuit fit  and errors
-###########################################################
 
 def line(x, a, b): return a + x * b
 
@@ -130,6 +132,7 @@ print(df_parameters.cov());
 print(dashes); print('correlation matrix')
 print(df_parameters.corr())
 print(dashes)
+
 #%%
 
 ###########################################################
@@ -151,6 +154,7 @@ plt.legend([handles[idx] for idx in order],[labels[idx] for idx in order],loc='u
 plt.show()
 fig.savefig("noncentral_chi2.pdf", bbox_inches='tight')
 fig.savefig("noncentral_chi2.png", bbox_inches='tight')
+
 #%%
 
 ###########################################################
