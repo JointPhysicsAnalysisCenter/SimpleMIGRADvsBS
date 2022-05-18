@@ -101,6 +101,7 @@ plt.tick_params(direction='in', top=False, right=False,left=True,size=5,labellef
 plt.show()
 yth = line(data_x, *m.values)
 c0bff, c2bff = chisquare(yth,ydata,y_error)
+valores = m.values
 fig.savefig("linear_fit.pdf", bbox_inches='tight')
 fig.savefig("linear_fit.png", bbox_inches='tight')
 #%%
@@ -177,7 +178,7 @@ for name in ["p0","p1"]:
     x = np.linspace(xdw,xup, npoints)
     plt.xlabel(nombre,size=label_size)
     plt.hist(df_parameters[name], bins=bins1, density=True,color=jpac_orange,alpha=alphachoice,label='Bootstrap')
-    plt.plot(x, stat.norm.pdf(x,m.values[i],err),'-', lw=2,c=jpac_blue,zorder=2,label='Gaussian distribution')
+    plt.plot(x, stat.norm.pdf(x,valores[i],err),'-', lw=2,c=jpac_blue,zorder=2,label='Gaussian distribution')
     plt.tick_params(direction='in', top=False, right=False,left=True,size=5,labelleft=True,labelbottom=True,labelsize=label_size)
     handles, labels = plt.gca().get_legend_handles_labels()
     order = [0,1]
